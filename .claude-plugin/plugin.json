@@ -1,0 +1,20 @@
+{
+  "name": "joint-planner",
+  "description": "A doctrinal joint planning copilot for Claude Code. Walks military planners through the seven-step Joint Planning Process (JPP) from JP 5-0 with structured plan workspaces, doctrinal critique, and artifact generation.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Hector Ramos"
+  },
+  "homepage": "https://github.com/hectorir/joint-operations-planner",
+  "repository": "https://github.com/hectorir/joint-operations-planner",
+  "license": "MIT",
+  "keywords": [
+    "joint-planning",
+    "jp-5-0",
+    "jpp",
+    "military",
+    "doctrine",
+    "operational-planning",
+    "claude-code"
+  ]
+}

@@ -1,0 +1,50 @@
+# Plan manifest — single source of truth for plan state.
+# Skills read this on entry, write on exit. Do not hand-edit while a skill is running.
+
+plan:
+  name: <kebab-case-plan-name>
+  level: estimate                   # estimate | bplan
+  created_at: <ISO-8601>
+  updated_at: <ISO-8601>
+  dir: <absolute-path>
+
+profile_used: ~/.config/joint-planner/profile.md  # null if no profile
+
+steps:
+  initiation:           { status: pending, last_modified: null, last_critique: null }
+  mission_analysis:     { status: pending, last_modified: null, last_critique: null }
+  coa_development:      { status: pending, last_modified: null, last_critique: null }
+  coa_analysis_wargame: { status: pending, last_modified: null, last_critique: null }
+  coa_comparison:       { status: pending, last_modified: null, last_critique: null }
+  coa_approval:         { status: pending, last_modified: null, last_critique: null }
+  plan_development:     { status: pending, last_modified: null, last_critique: null }
+
+cross_cutting:
+  cog:    { status: pending, last_modified: null }
+  assess: { status: pending, last_modified: null }
+
+# One entry per drafted COA. Update validity test results as Step 3 progresses.
+coas: []
+# Example:
+# coas:
+#   - id: coa-01
+#     short_name: forward-posture
+#     file: 02_coas/coa-01-forward-posture.md
+#     validity:
+#       suitable: pass             # pass | warn | fail | pending
+#       feasible: pass
+#       acceptable: warn
+#       distinguishable: pass
+#       complete: pass
+#     wargamed:
+#       most_likely: false
+#       most_dangerous: false
+#     selected: false
+
+approved_coa: null                   # filled at Step 6 with COA id
+
+iteration:
+  wargame_rounds: 0
+  reentries: []                      # log of {step, timestamp, reason}
+
+stale: []                            # auto-populated when an upstream step is re-entered
